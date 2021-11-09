@@ -4,6 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
+my_ssh_react_key
+my_ssh_react_key.pub
 
 # testing
 /coverage

@@ -1,9 +1,16 @@
 import './App.css';
 import {useState} from 'react'
-// import About from './components/About';
+import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
+
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+
 
 function App() {
   const [mode, setMode] = useState('light')
@@ -36,13 +43,19 @@ function App() {
   }
 
   return (
-    <>                
-      <Navbar title="TextUtils" about="About TextUtils" mode={mode} toggleMode={toggleMode}/> {/* sending the function toggleMode to navbar. Navebar will call the function. */}
-      <Alert alert={alert} /> {/* Not sending the function here, because alert doesn't have any decision to make. All it needs is values for alert*/}
-      <div className="container">
-        <TextForm heading="Enter text to analyze"  mode={mode} showAlert={showAlert} /> {/* Here again, we have decisions to make to call the function*/}
-        {/* <About /> */}
-      </div>
+    <>  
+      <Router>              
+        <Navbar title="TextUtils" about="About TextUtils" mode={mode} toggleMode={toggleMode}/> {/* sending the function toggleMode to navbar. Navebar will call the function. */}
+        <Alert alert={alert} /> {/* Not sending the function here, because alert doesn't have any decision to make. All it needs is values for alert*/}
+        <div className="container">
+          <Routes>
+            <Route exact path="/about" element={<About />}>
+            </Route>
+            <Route exact path="/" element={<TextForm heading="Enter text to modify"  mode={mode} showAlert={showAlert} />}>
+            </Route>
+          </Routes>
+        </div>
+      </Router>
     </>
   );
 }
