@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import '../App.css';
 
 export default function TextForm(props) {
 
@@ -28,6 +29,8 @@ export default function TextForm(props) {
         setText(newText.join(" "));
     }
 
+    const removeNewLines = () => setText(text.trim().replace( /\n/g, " " ))
+
     const [text, setText] = useState("");
     
     return (
@@ -40,21 +43,18 @@ export default function TextForm(props) {
                 <button className="btn btn-primary mt-3 mx-1" onClick={handleLoClick}>Convert to Lowercase</button>
                 <button className="btn btn-primary mt-3 mx-1" onClick={copyText}>Copy Text</button>
                 <button className="btn btn-primary mt-3 mx-1" onClick={removeExtraSpace}>Remove Extra spaces</button>
+                <button className="btn btn-primary mt-3 mx-1" onClick={removeNewLines}>Remove New lines</button>
                 <button className="btn btn-primary mt-3 mx-1" onClick={clearText}>Clear Text</button>
             </div>
             <div className="container mb-3" style={{color: props.mode === 'light'?'#042743':'white'}}>
                 <h2>Your Text Summary</h2>
-                {/* <p> {text.trim() === '' ? 0 : text.trim().split(' ').length} words and {text.length} characters </p> */}
-                
-                <p >{((
-                    text.trim().split(" ")).filter(function (element) { 
-                        return element !== "";
-                    })).length} words and {text.length} characters 
-                </p>
-                
+
+                <p>{((text.trim().replace( /\n/g, " " ).split(" ")).filter( element => element !== "" )).length} words 
+                and {text.length} characters </p>
+
                 <p> {Math.ceil(text.trim().split(' ').length * 0.008)} minute(s) read </p>
                 <h2>Preview</h2>
-                <p>{text.length > 0 ? text : "Enter something to preview here"}</p>
+                <p>{text.length > 0 ? text : "Enter something to preview"}</p>
 
             </div>  
         </>

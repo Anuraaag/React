@@ -45,8 +45,8 @@ function App() {
   return (
     <>  
       <Router>              
-        <Navbar title="TextUtils" about="About TextUtils" mode={mode} toggleMode={toggleMode}/> {/* sending the function toggleMode to navbar. Navebar will call the function. */}
-        <Alert alert={alert} /> {/* Not sending the function here, because alert doesn't have any decision to make. All it needs is values for alert*/}
+        <Navbar title="TextUtils" about="About TextUtils" mode={mode} toggleMode={toggleMode}/>
+        <Alert alert={alert} /> 
         <div className="container">
           <Routes>
             <Route exact path="/about" element={<About />}>
