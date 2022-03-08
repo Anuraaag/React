@@ -20,8 +20,11 @@ export default function TextForm(props) {
     }
 
     const copyText = () => {
-        navigator.clipboard.writeText(text)
-        props.showAlert("Data copied to clipboard", "success")
+        if (text.length < 1) props.showAlert("Enter some text to copy", "warning")
+        else{
+            navigator.clipboard.writeText(text)
+            props.showAlert("Data copied to clipboard", "success")    
+        }
     }
 
     const removeExtraSpace = () => {
@@ -49,12 +52,16 @@ export default function TextForm(props) {
             <div className="container mb-3" style={{color: props.mode === 'light'?'#042743':'white'}}>
                 <h2>Your Text Summary</h2>
 
-                <p>{((text.trim().replace( /\n/g, " " ).split(" ")).filter( element => element !== "" )).length} words 
-                and {text.length} characters </p>
+                {/* <p>{((text.trim().replace( /\n/g, " " ).split(" ")).filter( element => element !== "" )).length} words 
+                and {text.length} characters </p> */}
 
-                <p> {Math.ceil(text.trim().split(' ').length * 0.008)} minute(s) read </p>
+                {/* Using regex for any kind of space. And filtering out strings which aren't alphanumeric */}
+                <p>{((text.trim().split(/\s+/)).filter( element => (/^[a-z0-9]+$/i).test(element) )).length} words 
+                and {text.length} characters </p>
+   
+                <p> { text.length > 0 ? Math.ceil(text.trim().split(' ').length * 0.008) : 0} minute(s) read </p>
                 <h2>Preview</h2>
-                <p>{text.length > 0 ? text : "Enter something to preview"}</p>
+                <p>{text.length > 0 ? text : "Nothing to preview"}</p>
 
             </div>  
         </>
