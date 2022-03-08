@@ -56,7 +56,11 @@ export default function TextForm(props) {
                 and {text.length} characters </p> */}
 
                 {/* Using regex for any kind of space. And filtering out strings which aren't alphanumeric */}
-                <p>{((text.trim().split(/\s+/)).filter( element => (/^[a-z0-9]+$/i).test(element) )).length} words 
+                {/* <p>{((text.trim().split(/\s+/)).filter( element => (/^[a-z0-9]+$/i).test(element) )).length} words 
+                and {text.length} characters </p> */}
+
+                {/*  Matches strings with atleast some alnum    /([a-zA-Z0-9]+)/   or    /(^(?=.*[\w\d]).+)/     */}
+                <p>{((text.trim().split(/\s+/)).filter( element => element.match( /([a-zA-Z0-9]+)/ ) )).length} words 
                 and {text.length} characters </p>
    
                 <p> { text.length > 0 ? Math.ceil(text.trim().split(' ').length * 0.008) : 0} minute(s) read </p>
