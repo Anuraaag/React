@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/textForge/static/css/main.4fa00241.chunk.css",
-    "main.js": "/textForge/static/js/main.2997f150.chunk.js",
-    "main.js.map": "/textForge/static/js/main.2997f150.chunk.js.map",
+    "main.js": "/textForge/static/js/main.ce4c2845.chunk.js",
+    "main.js.map": "/textForge/static/js/main.ce4c2845.chunk.js.map",
     "runtime-main.js": "/textForge/static/js/runtime-main.3d545a68.js",
     "runtime-main.js.map": "/textForge/static/js/runtime-main.3d545a68.js.map",
     "static/js/2.2981ab45.chunk.js": "/textForge/static/js/2.2981ab45.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.3d545a68.js",
     "static/js/2.2981ab45.chunk.js",
     "static/css/main.4fa00241.chunk.css",
-    "static/js/main.2997f150.chunk.js"
+    "static/js/main.ce4c2845.chunk.js"
   ]
 }
