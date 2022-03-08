@@ -1,23 +1,15 @@
-import './App.css';
+import './App.css'
 import {useState} from 'react'
-import About from './components/About';
-import Navbar from './components/Navbar';
-import TextForm from './components/TextForm';
-import Alert from './components/Alert';
-
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from "react-router-dom";
-
+import Navbar from './components/Navbar'
+import TextForm from './components/TextForm'
+import Alert from './components/Alert'
 
 function App() {
   const [mode, setMode] = useState('light')
   const toggleMode = () => {
-    document.body.style.backgroundColor = (mode === 'light') ? '#042743' : 'white';
-    document.title = mode === 'light' ? "TextUtils - Home Dark" : "TextUtils - Home";
-    setMode((mode === 'light') ? 'dark' : 'light');
+    document.body.style.backgroundColor = (mode === 'light') ? '#042743' : 'white'
+    document.title = mode === 'light' ? "TextForge - Home Dark" : "TextForge - Home"
+    setMode((mode === 'light') ? 'dark' : 'light')
 
     // blinking the title to gain attention
     // setInterval(() => {
@@ -44,20 +36,13 @@ function App() {
 
   return (
     <>  
-      <Router>              
-        <Navbar title="TextUtils" about="About TextUtils" mode={mode} toggleMode={toggleMode}/>
+        <Navbar title="TextForge" mode={mode} toggleMode={toggleMode}/>
         <Alert alert={alert} /> 
         <div className="container">
-          <Routes>
-            <Route exact path="/about" element={<About />}>
-            </Route>
-            <Route exact path="/" element={<TextForm heading="Enter text to modify"  mode={mode} showAlert={showAlert} />}>
-            </Route>
-          </Routes>
+            <TextForm heading="Enter text to modify" mode={mode} showAlert={showAlert} />
         </div>
-      </Router>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

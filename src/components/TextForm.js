@@ -1,22 +1,22 @@
 import React, {useState} from 'react'
-import '../App.css';
+import '../App.css'
 
 export default function TextForm(props) {
 
     const handleUpClick = () => {
-        setText(text.toUpperCase());
+        setText(text.toUpperCase())
     }
 
     const handleLoClick = () => {
-        setText(text.toLowerCase());
+        setText(text.toLowerCase())
     }
 
     const handleOnChange = (event) => {
-        setText(event.target.value);
+        setText(event.target.value)
     }
 
     const clearText = () => {
-        setText("");
+        setText("")
     }
 
     const copyText = () => {
@@ -26,12 +26,12 @@ export default function TextForm(props) {
 
     const removeExtraSpace = () => {
         let newText = text.split(/[ ]+/)
-        setText(newText.join(" "));
+        setText(newText.join(" "))
     }
 
     const removeNewLines = () => setText(text.trim().replace( /\n/g, " " ))
 
-    const [text, setText] = useState("");
+    const [text, setText] = useState("")
     
     return (
         <>

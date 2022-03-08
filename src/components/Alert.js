@@ -2,7 +2,7 @@ import React from 'react'
 
 function Alert(props) {
 
-    const capitalize = word => word.charAt(0).toUpperCase() + word.slice(1);
+    const capitalize = word => word.charAt(0).toUpperCase() + word.slice(1)
     
     return (
         props.alert && 
